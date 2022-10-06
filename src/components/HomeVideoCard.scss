@@ -1,0 +1,134 @@
+@import "utils";
+
+.skeleton {
+  $fill-color: #f1f2f3;
+  &.hide {
+    display: none;
+  }
+
+  .skeleton-cover {
+    position: relative;
+
+    @include widthFitRatio(16, 9);
+    // width: 100%;
+    // padding-bottom: 56.25%;
+    // height: 0;
+
+    background-color: $fill-color;
+    border-radius: 6px;
+  }
+  .skeleton-info {
+    margin-top: 6px;
+  }
+  .skeleton-text {
+    width: 94%;
+    height: calc(1em - 4px);
+
+    margin: 0;
+    margin-bottom: 4px;
+
+    border-radius: 4px;
+    background-color: $fill-color;
+
+    &.short {
+      width: 72%;
+    }
+  }
+  .skeleton-light {
+    background-color: $fill-color;
+
+    width: 50%;
+    height: calc(1em - 6px);
+
+    margin: 0;
+    margin-top: 8px;
+
+    border-radius: 4px;
+  }
+}
+.home-video-card {
+  position: relative;
+
+  a {
+    text-decoration: none;
+  }
+  .container {
+    .scale-player-wrap {
+      position: relative;
+      @include widthFitRatio(16, 9);
+
+      border-radius: 6px;
+      overflow: hidden;
+
+      .image-wrap {
+        position: absolute;
+
+        height: 100%;
+        width: 100%;
+
+        img {
+          height: auto;
+          width: 100%;
+        }
+      }
+      .states-wrap {
+        position: absolute;
+
+        height: 100%;
+        width: 100%;
+
+        svg {
+          height: 1em;
+        }
+        .states {
+          position: absolute;
+          bottom: 0;
+
+          display: flex;
+          justify-content: space-between;
+
+          width: 100%;
+          padding: 4px 6px;
+          box-sizing: border-box;
+
+          color: #fff;
+          background: linear-gradient(0deg, rgb(0, 0, 0, 0.8), rgb(0, 0, 0, 0));
+          .states-left {
+            display: flex;
+
+            .item {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+        }
+      }
+    }
+    .info {
+      a {
+        text-decoration: none;
+      }
+      .info-tit {
+        height: 2em;
+
+        a {
+          color: var(--text1);
+        }
+      }
+      .info-bottom {
+        font-size: 0.8em;
+        a {
+          color: var(--text3);
+          svg {
+            height: 1em;
+            width: auto;
+          }
+          &:hover {
+            color: var(--brand_blue);
+          }
+        }
+      }
+    }
+  }
+}

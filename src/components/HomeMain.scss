@@ -1,0 +1,7 @@
+@import "utils";
+
+.home-main {
+  color: #000;
+
+  @include content-padding;
+}

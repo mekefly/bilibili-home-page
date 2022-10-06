@@ -1,0 +1,62 @@
+.channel-icons {
+  $size: 42px;
+  $text-Color: #18191c;
+  $space: 16px;
+
+  display: flex;
+
+  .channel-icons__item {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    margin-right: $space;
+
+    color: $text-Color;
+
+    .icon-bg {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      overflow: hidden;
+
+      width: $size;
+      height: $size;
+
+      border-radius: 50%;
+      color: white;
+
+      transition: all 1s;
+
+      &.icon_bg__hot {
+        background-color: rgb(240, 119, 117);
+        &:hover {
+          background-color: rgb(243, 142, 140);
+        }
+      }
+      &.icon-bg__channel {
+        background-color: rgb(89, 202, 115);
+
+        &:hover {
+          background-color: rgb(102, 206, 126);
+        }
+      }
+
+      picture {
+        display: block;
+
+        width: 100%;
+        height: 100%;
+
+        img {
+          display: block;
+
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}

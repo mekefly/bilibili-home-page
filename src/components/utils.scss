@@ -1,0 +1,15 @@
+$content-max-width: 2000px;
+:root {
+  --content-padding: 60px;
+}
+@mixin content-padding {
+  width: 100%;
+  padding: 0 max(calc((100% - $content-max-width) / 2), var(--content-padding));
+  box-sizing: border-box;
+}
+
+@mixin widthFitRatio($wide, $long) {
+  width: 100%;
+  padding-bottom: calc(100% / ($wide / $long));
+  height: 0;
+}

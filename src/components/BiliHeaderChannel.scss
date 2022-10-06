@@ -1,0 +1,55 @@
+@import "utils";
+
+.bili-header-channel {
+  --height: 100px;
+  $duration: 0.5s;
+
+  display: flex;
+  align-items: center;
+
+  height: 100px;
+  @include content-padding;
+
+  transition: height $duration;
+}
+@media screen and (min-width: 1500px) {
+  .bili-header-channel {
+    height: 110px;
+  }
+}
+@media screen and (min-width: 2000px) {
+  .bili-header-channel {
+    height: 120px;
+  }
+}
+
+.right-channel-container {
+  display: flex;
+  align-items: center;
+
+  flex-grow: 1;
+
+  height: 100%;
+}
+.channel-items-left {
+  flex-grow: 1;
+
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-auto-columns: 0px;
+  grid-template-rows: repeat(2, 1fr);
+  align-content: center;
+
+  grid-auto-flow: column;
+}
+@media (max-width: 2px) {
+}
+.channel-items-right {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-columns: 0px;
+  grid-template-rows: repeat(2, 1fr);
+  align-content: center;
+
+  grid-auto-flow: column;
+}
