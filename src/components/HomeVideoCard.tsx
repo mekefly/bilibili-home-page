@@ -4,24 +4,11 @@ import { useFlexibleRange } from "../utils/reactUse";
 import "./HomeVideoCard.scss";
 
 type Props = {
-  cardData?: CardData;
+  cardData?: CardData | null;
+  className?: string;
 };
-export default function HomeVideoCard({ cardData }: Props) {
+export default function HomeVideoCard({ cardData, className }: Props) {
   const fontSize = `${useFlexibleRange(12, 20)}px`;
-  if (!cardData) {
-    return (
-      <div className="home-video-card" style={{ fontSize }}>
-        <div className={classNames("skeleton", { hide: !!cardData })}>
-          <div className="skeleton-cover"></div>
-          <div className="skeleton-info">
-            <p className="skeleton-text"></p>
-            <p className="skeleton-text short"></p>
-            <p className="skeleton-light"></p>
-          </div>
-        </div>
-      </div>
-    );
-  }
   function getData() {
     const infoDate = cardData!.infoDate;
     const infoDateTime = infoDate.getTime();
@@ -36,18 +23,12 @@ export default function HomeVideoCard({ cardData }: Props) {
       return `${infoDate.getMinutes()}-${infoDate.getDate()}`;
     }
   }
-
-  return (
-    <div className="home-video-card" style={{ fontSize }}>
-      <div className={classNames("skeleton", { hide: !!cardData })}>
-        <div className="skeleton-cover"></div>
-        <div className="skeleton-info">
-          <p className="skeleton-text"></p>
-          <p className="skeleton-text short"></p>
-          <p className="skeleton-light"></p>
-        </div>
-      </div>
-      <div className="container">
+  function HomeVideoCardContainer() {
+    if (!cardData) {
+      return <></>;
+    }
+    return (
+      <div className="container" key={Math.random()}>
         <a href={cardData.href}>
           <div className="scale-player-wrap">
             <div className="image-wrap">
@@ -92,6 +73,23 @@ export default function HomeVideoCard({ cardData }: Props) {
           </div>
         </div>
       </div>
+    );
+  }
+
+  return (
+    <div
+      className={classNames("home-video-card", className)}
+      style={{ fontSize }}
+    >
+      <div className={classNames("skeleton", { hide: !!cardData })}>
+        <div className="skeleton-cover"></div>
+        <div className="skeleton-info">
+          <p className="skeleton-text"></p>
+          <p className="skeleton-text short"></p>
+          <p className="skeleton-light"></p>
+        </div>
+      </div>
+      {HomeVideoCardContainer()}
     </div>
   );
 }
@@ -99,8 +97,8 @@ function UpSvg() {
   return (
     <svg id="widget-up" viewBox="0 0 14 10.666">
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M0 2.5A2.5 2.5 0 0 1 2.5 0h8.334a2.5 2.5 0 0 1 2.5 2.5v5.666a2.5 2.5 0 0 1-2.5 2.5H2.5a2.5 2.5 0 0 1-2.5-2.5ZM2.5 1A1.5 1.5 0 0 0 1 2.5v5.666a1.5 1.5 0 0 0 1.5 1.5h8.334a1.5 1.5 0 0 0 1.5-1.5V2.5a1.5 1.5 0 0 0-1.5-1.5zM3 2.833a.5.5 0 0 1 .5.5v2.5a1 1 0 1 0 2 0v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-4 0v-2.5a.5.5 0 0 1 .5-.5Zm4.667 0a.5.5 0 0 0-.5.5v4a.5.5 0 1 0 1 0v-.667H9.25a1.917 1.917 0 1 0 0-3.833zM9.25 5.666H8.167V3.833H9.25a.917.917 0 1 1 0 1.833z"
         fill="currentColor"
         id="path48"

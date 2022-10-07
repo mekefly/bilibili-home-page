@@ -1,10 +1,6 @@
 .home-recommended {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  grid-gap: 20px;
+  padding-bottom: 30px;
 
-  width: 100%;
   .recommended-swipe {
     grid-column: span 2;
     grid-row: span 2;

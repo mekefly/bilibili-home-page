@@ -2,6 +2,7 @@ import classNames from "classnames";
 import { useState } from "react";
 import { useFlexibleRange } from "../utils/reactUse";
 import "./ChannelButton.scss";
+
 type Channel = { value: string; href: string };
 
 export function ChannelButton(
@@ -11,7 +12,10 @@ export function ChannelButton(
     popover?: Channel[];
     useArrow?: boolean;
     leftIcon?: JSX.Element;
+    rightIcon?: JSX.Element;
     noEdge?: boolean;
+    children?: JSX.Element | string | Array<JSX.Element | string>;
+    className?: string;
   } & React.DetailedHTMLProps<
     React.AnchorHTMLAttributes<HTMLAnchorElement>,
     HTMLAnchorElement
@@ -19,9 +23,28 @@ export function ChannelButton(
   ...rest: any
 ) {
   const [hide, setHide] = useState(true);
+  function buttonValue() {
+    if (props.children) {
+      return props.children;
+    }
+
+    return (
+      <>
+        {props.leftIcon ? (
+          <span className="left-icon">{props.leftIcon}</span>
+        ) : undefined}
+        {props.value}
+        {props.useArrow ? (
+          <span className={classNames("icon", { hovered: !hide })}>
+            <ChannelEntryMoreLinkArrow />
+          </span>
+        ) : undefined}
+      </>
+    );
+  }
   return (
     <div
-      className="channel-button"
+      className={classNames("channel-button", props.className)}
       onMouseEnter={() => setHide(false)}
       onMouseLeave={() => setHide(true)}
     >
@@ -32,16 +55,7 @@ export function ChannelButton(
           noEdge: props.noEdge,
         })}
       >
-        {props.leftIcon ? (
-          <span className="left-icon">{props.leftIcon}</span>
-        ) : undefined}
-        {props.value}
-
-        {props.useArrow ? (
-          <span className={classNames("icon", { hovered: !hide })}>
-            <ChannelEntryMoreLinkArrow />
-          </span>
-        ) : undefined}
+        {buttonValue()}
       </a>
       <Popover hide={hide} items={props.popover}></Popover>
     </div>

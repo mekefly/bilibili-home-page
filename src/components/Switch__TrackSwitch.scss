@@ -1,0 +1,59 @@
+.switch--track-switch {
+  position: relative;
+  padding: 0 1em;
+  .background {
+    position: relative;
+
+    --bg-color: transparent;
+
+    padding: 6px 15px;
+
+    background-color: transparent;
+    color: var(--text2);
+    text-decoration: none;
+    outline: none;
+    border: none;
+    border-radius: 0;
+
+    &:hover {
+      --bg-color: #f1f2f3;
+    }
+    &::before {
+      content: "";
+
+      position: absolute;
+      top: 0;
+      left: -10px;
+      right: -10px;
+      bottom: 0;
+      z-index: 0;
+
+      display: block;
+
+      background-color: var(--bg-color);
+      border-radius: 999px;
+    }
+  }
+  .slider {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    --bg-color: var(--brand_blue) !important;
+
+    transition: var(--duration5);
+    transition-property: transform width;
+    box-sizing: border-box;
+  }
+  button {
+    &.is-active {
+      color: #f1f2f3;
+    }
+    .value {
+      position: relative;
+      z-index: 2;
+
+      transition: color var(--duration5);
+    }
+  }
+}

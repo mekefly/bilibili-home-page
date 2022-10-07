@@ -1,11 +1,12 @@
+import FeedFloors from "./FeedFloors";
 import "./HomeMain.scss";
 import HomeRecommended from "./HomeRecommended";
-import HomeVideoCard from "./HomeVideoCard";
 
 export default function HomeMain() {
   return (
     <main className="home-main">
       <HomeRecommended></HomeRecommended>
+      <FeedFloors></FeedFloors>
     </main>
   );
 }

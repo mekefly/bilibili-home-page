@@ -1,0 +1,27 @@
+.switch--mouse-switch {
+  position: relative;
+  padding: 0 1em;
+  button {
+    &.background {
+      position: relative;
+
+      --bg-color: #f1f2f3;
+
+      margin-left: 10px;
+      padding: 6px 15px;
+
+      text-decoration: none;
+      outline: none;
+      border: none;
+      border-radius: 999px;
+      background-color: var(--bg-color);
+      color: var(--text2);
+      transition: background-color var(--duration3);
+
+      &.is-active {
+        color: #f1f2f3;
+        --bg-color: var(--brand_blue);
+      }
+    }
+  }
+}

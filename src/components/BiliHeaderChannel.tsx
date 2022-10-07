@@ -172,7 +172,7 @@ function ChannelItemsRight() {
 const ChannelItemsRightIcon1 = (
   <svg
     t="1642646834655"
-    class="icon side-icon"
+    className="icon side-icon"
     viewBox="0 0 1024 1024"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
@@ -189,7 +189,7 @@ const ChannelItemsRightIcon1 = (
 const ChannelItemsRightIcon2 = (
   <svg
     t="1642646710703"
-    class="icon side-icon"
+    className="icon side-icon"
     viewBox="0 0 1024 1024"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
@@ -206,7 +206,7 @@ const ChannelItemsRightIcon2 = (
 const ChannelItemsRightIcon3 = (
   <svg
     t="1642646844599"
-    class="icon side-icon"
+    className="icon side-icon"
     viewBox="0 0 1024 1024"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
@@ -224,7 +224,7 @@ const ChannelItemsRightIcon3 = (
 const ChannelItemsRightIcon4 = (
   <svg
     t="1642669966795"
-    class="icon side-icon"
+    className="icon side-icon"
     viewBox="0 0 1024 1024"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
@@ -241,7 +241,7 @@ const ChannelItemsRightIcon4 = (
 const ChannelItemsRightIcon5 = (
   <svg
     t="1642670011510"
-    class="icon side-icon"
+    className="icon side-icon"
     viewBox="0 0 1024 1024"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
@@ -259,7 +259,7 @@ const ChannelItemsRightIcon5 = (
 const ChannelItemsRightIcon6 = (
   <svg
     t="1642669999866"
-    class="icon side-icon"
+    className="icon side-icon"
     viewBox="0 0 1024 1024"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"

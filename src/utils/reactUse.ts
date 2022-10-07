@@ -35,3 +35,19 @@ export function useFetchState<T extends any>(
   }, []);
   return state;
 }
+
+export function useLimit<E extends any>(
+  list: E[],
+  limit: number,
+  completion: boolean = true
+) {
+  const l: Array<E | null> = [...list];
+
+  if (completion) {
+    while (l.length < limit) {
+      l.push(null);
+    }
+  }
+
+  return l.slice(0, limit);
+}

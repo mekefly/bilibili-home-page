@@ -1,21 +1,18 @@
-import { getVideoCardDataList } from "../api/HomeVideoCardImg";
-import { useFetchState, useFlexibleRange } from "../utils/reactUse";
+import { useState } from "react";
+import { getRecommendedVideoCardDataList } from "../api/HomeVideoCardImg";
+import { useFetchState } from "../utils/reactUse";
+import BiliHomeGrid from "./BiliHomeGrid";
 import HomeMerryGoRound from "./HomeMerryGoRound";
 import "./HomeRecommended.scss";
 import HomeVideoCard from "./HomeVideoCard";
 
 export default function HomeRecommended() {
-  const columns = useFlexibleRange(3, 5);
+  const [columns, setColumns] = useState(0);
 
   const [recommendedCardDataList = [], setRecommendCardDataList] =
-    useFetchState(() => getVideoCardDataList());
+    useFetchState(() => getRecommendedVideoCardDataList());
   return (
-    <div
-      className="home-recommended"
-      style={{
-        gridTemplateColumns: `repeat(${columns}, 1fr)`,
-      }}
-    >
+    <BiliHomeGrid className="home-recommended" updateColumns={setColumns}>
       <div className="recommended-swipe">
         <HomeMerryGoRound></HomeMerryGoRound>
       </div>
@@ -25,6 +22,6 @@ export default function HomeRecommended() {
           <HomeVideoCard cardData={data}></HomeVideoCard>
         </div>
       ))}
-    </div>
+    </BiliHomeGrid>
   );
 }
